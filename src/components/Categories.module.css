@@ -1,0 +1,38 @@
+ul{
+    list-style: none;
+    gap:15px;
+}
+.liCategories{
+    height: 130px;
+    width: 120px;
+    padding: 10px;
+    margin: 15px;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &:hover{
+        background-color: rgb(250, 226, 11);
+    }
+}
+@media (max-width:800px){
+    .liCategories{
+        flex: 0 0 100px;
+    }
+}
+@media (max-width:480px){
+    .liCategories{
+        flex: 0 0 90px;
+    }
+}
+img{
+    height: 90px;
+    
+}
+p{
+    margin-top: auto;
+    text-align: center;
+    font-weight: 600;
+}
