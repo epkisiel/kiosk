@@ -14,7 +14,7 @@ span{
     gap:15px;
 }
 .liProducts{
-    height: 180px;
+    height: 200px;
     width: 180px;
     padding:10px;
     background-color: rgb(230, 230, 230);
@@ -27,18 +27,19 @@ span{
         background-color: rgb(250, 226, 11);
     }
 }
-@media(min-width:801px){
+
+@media (max-width:500px){
     .liProducts{
-        flex: 0 0 200px;
+        width: 120px;
+        height: 150px;
     }
 }
-@media (max-width:800px){
+@media(min-width:1600px){
     .liProducts{
-        flex: 0 0 200px;
+        width: 230px;
+        height: 250px;
     }
 }
-@media (max-width:480px){
-    .liProducts{
-        flex: 0 0 150px;
-    }
+img{
+    width: 90%;
 }

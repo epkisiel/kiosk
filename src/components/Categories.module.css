@@ -17,19 +17,20 @@ ul{
         background-color: rgb(250, 226, 11);
     }
 }
-@media (max-width:800px){
+@media (max-width:500px){
     .liCategories{
-        flex: 0 0 100px;
+        width: 90px;
+        height: 105px;
     }
 }
-@media (max-width:480px){
+@media(min-width:1600px){
     .liCategories{
-        flex: 0 0 90px;
+        width: 140px;
+        height: 150px;
     }
 }
 img{
-    height: 90px;
-    
+    width: 90%;
 }
 p{
     margin-top: auto;
