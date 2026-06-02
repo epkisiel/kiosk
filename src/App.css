@@ -46,6 +46,10 @@
     background-color:  rgb(250, 226, 11);
   }
 }
+#pSuma{
+  font-weight: 600;
+  font-size:x-large;
+}
 
 @media(max-width:500px){
   #orderInfo{
@@ -53,6 +57,9 @@
   }
   #buttonPodsumowanie{
     font-size: medium;
+  }
+  #pSuma{
+    font-size: large;
   }
 }
 

@@ -25,7 +25,7 @@ function App(){
       </div>
 
       <div id="orderInfo">
-        <p>Suma: {suma} PLN</p>
+        <p id="pSuma">Suma: {suma} PLN</p>
         <button id="buttonPodsumowanie">Przejdź do posumowania</button>
       </div>
     </div>

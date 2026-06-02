@@ -7,7 +7,7 @@ function Products({products,selectedCategory}){
                     product.idCategory==selectedCategory &&
                     <li className={styles.liProducts} key={product.id}>
                         <img src={product.img}/>
-                        <p>{product.name} <br/>
+                        <p className={styles.pProducts}>{product.name} <br/>
                         <span>{product.price} PLN</span></p>
                     </li>))
                 }
