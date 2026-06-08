@@ -26,7 +26,10 @@ function App(){
 
       <div id="orderInfo">
         <p id="pSuma">Suma: {suma} PLN</p>
-        <button id="buttonPodsumowanie">Przejdź do posumowania</button>
+        <div>
+          <button id="buttonPodsumowanie">Przejdź do posumowania</button>
+          <button id="buttonAnulujZamowienie">Anuluj zamówienie</button>
+        </div>
       </div>
     </div>
   )
