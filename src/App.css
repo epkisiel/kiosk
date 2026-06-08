@@ -70,6 +70,7 @@
 #pSuma{
   font-weight: 600;
   font-size:x-large;
+  margin-left: 5%;
 }
 
 @media(max-width:500px){

@@ -4,9 +4,9 @@ function Products({products,selectedCategory}){
         <>
             <ul id={styles.ulProducts}>
                 {products.map((product)=>(
-                    product.idCategory==selectedCategory &&
+                    product.id_category==selectedCategory &&
                     <li className={styles.liProducts} key={product.id}>
-                        <img src={product.img}/>
+                        <img src={`https://kiosk-express-api.onrender.com/img/${product.img}`}/>
                         <p className={styles.pProducts}>{product.name} <br/>
                         <span>{product.price} PLN</span></p>
                     </li>))

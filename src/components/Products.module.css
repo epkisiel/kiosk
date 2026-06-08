@@ -14,7 +14,7 @@ span{
     gap:15px;
 }
 .liProducts{
-    height: 200px;
+    height: 170px;
     width: 180px;
     padding:10px;
     background-color: rgb(230, 230, 230);
@@ -27,7 +27,10 @@ span{
         background-color: rgb(250, 226, 11);
     }
 }
-
+.liProducts img{
+    
+    
+}
 @media (max-width:500px){
     .liProducts{
         width: 120px;
@@ -39,7 +42,4 @@ span{
         width: 230px;
         height: 250px;
     }
-}
-img{
-    width: 90%;
 }
