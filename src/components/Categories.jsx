@@ -6,7 +6,7 @@ function Categories({categories, selectCategory}){
                 {categories.map((category)=>
                     <li className={styles.liCategories} key={category.id} onClick={()=>selectCategory(category.id)}>
                         <img src={category.img}/>
-                        <p className={styles.pCategories}>{category.name}</p>
+                        <p>{category.name}</p>
                     </li>
                 )}
             </ul>

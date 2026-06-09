@@ -7,7 +7,7 @@ function Products({products,selectedCategory}){
                     product.id_category==selectedCategory &&
                     <li className={styles.liProducts} key={product.id}>
                         <img src={`https://kiosk-express-api.onrender.com/img/${product.img}`}/>
-                        <p className={styles.pProducts}>{product.name} <br/>
+                        <p>{product.name} <br/>
                         <span>{product.price} PLN</span></p>
                     </li>))
                 }

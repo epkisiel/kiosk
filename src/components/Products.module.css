@@ -1,9 +1,9 @@
-.pProducts{
+.liProducts p{
     margin-top: auto;
     text-align: center;
     font-weight: 600;
 }
-span{
+.liProducts span{
     font-weight: 400;
 }
 #ulProducts{
@@ -16,7 +16,7 @@ span{
 .liProducts{
     height: 170px;
     width: 180px;
-    padding:10px;
+    padding:5px;
     background-color: rgb(230, 230, 230);
     display: flex;
     align-items: center;
@@ -27,19 +27,18 @@ span{
         background-color: rgb(250, 226, 11);
     }
 }
-.liProducts img{
-    
-    
-}
+
 @media (max-width:500px){
     .liProducts{
         width: 120px;
-        height: 150px;
+        min-height: 140px;
+        height: fit-content;
     }
 }
 @media(min-width:1600px){
     .liProducts{
         width: 230px;
-        height: 250px;
+        height: 220px;
+        padding:10px;
     }
 }
