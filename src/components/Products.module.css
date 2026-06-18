@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap:15px;
+    padding: 15px;
 }
 .liProducts{
     height: 170px;
@@ -22,9 +23,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: transform 0.1s ease, background-color 0.1s ease;
 
     &:hover{
-        background-color: rgb(250, 226, 11);
+       background-color: rgb(250, 226, 11);
+    }
+    &:active{
+        transform: scale(0.95);
     }
 }
 
@@ -35,7 +40,7 @@
         height: fit-content;
     }
 }
-@media(min-width:1600px){
+@media(min-width:1200px){
     .liProducts{
         width: 230px;
         height: 220px;

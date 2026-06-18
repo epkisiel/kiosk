@@ -3,12 +3,12 @@
   width: 100%;
 }
 #categories{
+  border-right: 1px rgb(0, 92, 0) solid;
   float: left;
   width: fit-content;
-  height: calc(100vh - 155px);
+  height: calc(100vh - 140px);
   justify-content: center;
   display: flex;
-  margin-bottom: 15px;
   padding-right: 25px; 
   scrollbar-width: thin;
   overflow-y: auto;
@@ -18,12 +18,15 @@
 
 #products{
   float: left;
+  height: calc(100vh - 140px);
   width: 100%;
-  padding: 15px;
-  border-left: 1px rgb(0, 92, 0) solid;
-  box-sizing: border-box;
-  padding-bottom: 155px;
+  margin-bottom: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: rgb(185, 185, 185) transparent;
+  padding-right: 30px; 
 }
+
 #orderInfo{
   background-color: rgb(248, 248, 248);
   border-top: 3px rgb(0, 92, 0) solid;
@@ -102,11 +105,9 @@
     text-wrap-mode: wrap;
   }
   #categories{
-    height: calc(100hv);
-    margin-bottom: 15px;
-    padding-bottom: 45px;
+    padding-bottom: 40px;
   }
   #products{
-    padding-bottom: 115px;
+    padding-bottom: 40px;
   }
 }

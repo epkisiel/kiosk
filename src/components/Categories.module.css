@@ -1,4 +1,4 @@
-ul{
+#ulCategories{
     list-style: none;
     gap:15px;
 }
@@ -12,9 +12,13 @@ ul{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: transform 0.1s ease, background-color 0.1s ease;
 
     &:hover{
-        background-color: rgb(250, 226, 11);
+       background-color: rgb(250, 226, 11);
+    }
+    &:active{
+        transform: scale(0.95);
     }
 }
 .liCategories p{
@@ -31,7 +35,7 @@ ul{
         height: 105px;
     }
 }
-@media(min-width:1600px){
+@media(min-width:1200px){
     .liCategories{
         width: 140px;
         height: 150px;
