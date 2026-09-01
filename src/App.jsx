@@ -1,8 +1,10 @@
 import {useState,useEffect} from 'react';
-import "./App.css"
-import Categories from "./components/Categories.jsx"
-import Products from "./components/Products.jsx"
-import Product from "./components/Product.jsx"
+import "./App.css";
+import Categories from "./components/Categories.jsx";
+import Products from "./components/Products.jsx";
+import Product from "./components/Product.jsx";
+import OrderSummary from './components/OrderSummary.jsx';
+
 
 function App(){
   const [categories,setCategories]=/*useState([]);*/useState([{id:1,name:"jeden",img:"1"},{id:2,name:"dwa",img:"2"}]);
@@ -32,13 +34,17 @@ function App(){
     setTotalPrice(0);
     setSelectedCategory(1);
   }
+  function goToSummary(){
+    setPageVisibility("summary")
+  }
 
   function addToOrder(addedProduct,amount){
     const newId=Math.max(...order.map(o=>o.id),0)+1;
     const newOrder={id:newId,productId:addedProduct.id,name:addedProduct.name,price:addedProduct.price,amount:amount};
     setOrder([...order,newOrder]); 
     setPageVisibility("main");
-    setTotalPrice(prev=>prev+newOrder.price);
+    const price=newOrder.price*amount;
+    setTotalPrice(prev=>prev+price);
   }
 
 
@@ -88,8 +94,8 @@ function App(){
         <div id="orderInfo">
           <p id="pTotalPrice">Suma: {totalPrice} PLN</p>
           <div>
-            <button id="buttonPodsumowanie">Przejdź do posumowania</button>
-            <button id="buttonAnulujZamowienie" onClick={cancelOrder}>Anuluj zamówienie</button>
+            <button id="buttonSummary" onClick={goToSummary}>Przejdź do posumowania</button>
+            <button id="buttonCancelOrder" onClick={cancelOrder}>Anuluj zamówienie</button>
           </div>
         </div>
       </div>
@@ -97,6 +103,10 @@ function App(){
 
     {pageVisibility=="product" &&
       <Product selectedProduct={selectedProduct} setPageVisibility={setPageVisibility} integrients={integrients} addToOrder={addToOrder}/>
+    }
+
+    {pageVisibility=="summary" &&
+      <OrderSummary order={order} totalPrice={totalPrice}/>
     }
   </>
   )
