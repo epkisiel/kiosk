@@ -8,6 +8,14 @@ body{
   overflow-y: hidden;
   overflow-x: hidden;
 }
+:root{
+  --main-color: rgb(0, 92, 0);
+  --secondary-color:  rgb(250, 226, 11);
+  --delete-color: rgb(153, 0, 0);
+  --list-element-color: rgb(230, 230, 230);
+}
+
+
 /*:root {
   --text: #6b6375;
   --text-h: #08060d;

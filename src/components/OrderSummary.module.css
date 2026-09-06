@@ -1,19 +1,67 @@
 #summaryPage{
-    background-color: rgb(0, 92, 0);
+    background-color: var(--main-color);
     width: 100%;
     height: 100vh;
     padding:70px;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
 
     & #products{
-        width: 40%;
+        width: 50%;
         float: left;
 
         & p{
             color: white;
             font-weight: 600;
             font-size: 45px;
+            margin-bottom: 20px;
+        }
+        & ul li{
+            list-style-type: none;
+            margin-top: 10px;
+            color:white;
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+
+            & #name {
+                font-size: 25px;
+                font-weight: 700;
+                width: 50%;
+            }
+            & #amount{
+                font-size: 20px;
+                width: 15%;
+                text-align: right;
+            }
+            & #price{
+                font-size: 22px;
+                width:25%;
+                text-align: right;
+                padding-right: 20px;
+            }
+            & #delete{
+                width: 10%;
+
+                & button{
+                    margin-left: 10px;
+                    width: fit-content;
+                    height: fit-content;
+                    padding: 4px;
+                    padding-right: 7px;
+                    padding-left: 7px;
+                    color:white;
+                    background-color: var(--delete-color);
+                    border: 0;
+                    border-radius: 5px;
+                    font-size: 20px;
+                    justify-content: center;
+
+                    &:hover{
+                        background-color: var(--secondary-color);
+                    }
+                }
+            } 
         }
     }
 
@@ -21,12 +69,51 @@
         width:40%;
         float: left;
         text-align: center;
+        align-items: center;      
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: calc(100vh - 140px);
 
         & p{
             color: white;
             font-size: 35px;
             font-weight: 600;
-            margin-top: 80px;
+            margin-bottom: 10%;
+        }
+
+        #payButton{
+            margin: 5px;
+            background-color: var(--secondary-color);
+            border: 2px  var(--secondary-color) solid;
+            font-size: larger;
+            height: fit-content;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-wrap-mode: nowrap;
+            width: 50%;
+
+            &:hover{
+                background-color: var(--main-color);
+                color:white;
+            }
+        }
+        #goBackButton{
+            margin: 5px;
+            background-color: white;
+            border: 2px white solid;
+            font-size: larger;
+            height: fit-content;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            width: 50%;
+
+            &:hover{
+                background-color: var(--main-color);
+                color: white;
+            }
         }
     }
 }

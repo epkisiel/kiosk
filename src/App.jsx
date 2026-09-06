@@ -8,7 +8,7 @@ import OrderSummary from './components/OrderSummary.jsx';
 
 function App(){
   const [categories,setCategories]=/*useState([]);*/useState([{id:1,name:"jeden",img:"1"},{id:2,name:"dwa",img:"2"}]);
-  const [products,setProducts]=/*useState([]);*/useState([{id:1,id_category:1,name:"Jeden",price:1.11,img:"11"},{id:2,id_category:2,name:"Dwa",price:2.22,img:"22"}]);
+  const [products,setProducts]=/*useState([]);*/useState([{id:1,id_category:1,name:"Jeden",price:1.10,img:"11"},{id:2,id_category:2,name:"Dwa",price:2.22,img:"22"}]);
   /* const [integrients,setIntegrients]=useState([]); *///app.jsx -(onclick)-> products.jsx onClick(onclick) -(dane produktu)> App.jsx onclick -> setPageVisibility(product) ->dane produktu?
   const [selectedCategory, setSelectedCategory]=useState(1);
   const [selectedProduct,setSelectedProduct]=useState();
@@ -92,7 +92,7 @@ function App(){
         </div>
 
         <div id="orderInfo">
-          <p id="pTotalPrice">Suma: {totalPrice} PLN</p>
+          <p id="pTotalPrice">Suma: {(Math.round(totalPrice*100)/100)} PLN</p>
           <div>
             <button id="buttonSummary" onClick={goToSummary}>Przejdź do posumowania</button>
             <button id="buttonCancelOrder" onClick={cancelOrder}>Anuluj zamówienie</button>
@@ -106,7 +106,7 @@ function App(){
     }
 
     {pageVisibility=="summary" &&
-      <OrderSummary order={order} totalPrice={totalPrice}/>
+      <OrderSummary order={order} totalPrice={totalPrice} setPageVisibility={setPageVisibility}/>
     }
   </>
   )
