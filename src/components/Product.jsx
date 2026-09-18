@@ -35,7 +35,7 @@ function Product({selectedProduct,setPageVisibility,integrients,addToOrder})
                 <ul>
                     {integrients.map((integrient)=>(
                             <li key={integrient.id}>
-                            <img src=/*{`https://kiosk-express-api.onrender.com/img/${integrient.img}`}*/"react.svg"/>
+                            <img src=/*{`https://express-kiosk-api.onrender.com/img/${integrient.img}`}*/"react.svg"/>
                             <p>{integrient.name}</p>
                             <span>Ilość: {integrient.amount}</span>
                         </li>))

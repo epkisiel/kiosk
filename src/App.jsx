@@ -47,13 +47,22 @@ function App(){
     setTotalPrice(prev=>prev+price);
   }
 
+  function deleteFromOrder(orderId){
+    setOrder(currentOrder=>currentOrder.filter(orderedProduct=>orderedProduct.id!==orderId));
+    setOrder(prevOrder=>prevOrder.map((o,index)=>{
+      return{
+        ...o,id:index+1
+      }
+    }));
+  }
 
-  /*useEffect(()=>{
+/*
+  useEffect(()=>{
     const fetchData=async()=>{
       try{
         const [categoriesRes,productsRes]=await Promise.all([
-          fetch("https://kiosk-express-api.onrender.com/Categories"),
-          fetch("https://kiosk-express-api.onrender.com/Products")]);
+          fetch("https://express-kiosk-api.onrender.com/Categories"),
+          fetch("https://express-kiosk-api.onrender.com//Products")]);
 
         if(!categoriesRes.ok || !productsRes.ok){
           console.log("Błąd pobierania danych");
@@ -71,8 +80,8 @@ function App(){
     }
 
     fetchData();
-  },[]);*/
-
+  },[]);
+*/
   return(
   <>
     {pageVisibility=="start" && 
@@ -106,7 +115,7 @@ function App(){
     }
 
     {pageVisibility=="summary" &&
-      <OrderSummary order={order} totalPrice={totalPrice} setPageVisibility={setPageVisibility}/>
+      <OrderSummary order={order} totalPrice={totalPrice} setPageVisibility={setPageVisibility} deleteFromOrder={deleteFromOrder}/>
     }
   </>
   )

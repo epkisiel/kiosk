@@ -1,6 +1,6 @@
 import styles from "./OrderSummary.module.css";
 
-function OrderSummary({order, totalPrice, setPageVisibility}){
+function OrderSummary({order, totalPrice, setPageVisibility, deleteFromOrder}){
     return(
         <div id={styles.summaryPage}>
             <div id={styles.products}>
@@ -12,7 +12,7 @@ function OrderSummary({order, totalPrice, setPageVisibility}){
                         <div id={styles.name}>{product.name}</div>
                         <div id={styles.amount}>Ilość: {product.amount}</div>
                         <div id={styles.price}>{(Math.round(product.price*product.amount*100)/100)} PLN </div>
-                        <div id={styles.delete}><button>Usuń</button></div>
+                        <div id={styles.delete} onClick={()=>{deleteFromOrder(product.id)}}><button>Usuń</button></div>
                     </li>))
                 }
             </ul>
