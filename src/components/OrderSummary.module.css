@@ -82,7 +82,7 @@
             margin-bottom: 10%;
         }
 
-        #payButton{
+        #payButtonEnabled{
             margin: 5px;
             background-color: var(--secondary-color);
             border: 2px  var(--secondary-color) solid;
@@ -97,6 +97,23 @@
             &:hover{
                 background-color: var(--main-color);
                 color:white;
+            }
+        }
+        #payButtonDisabled{
+            margin: 5px;
+            background-color: var(--secondary-color);
+            border: 2px  var(--secondary-color) solid;
+            font-size: larger;
+            height: fit-content;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-wrap-mode: nowrap;
+            width: 50%;
+            color:#9c8d06;
+
+            &:hover{
+                cursor: not-allowed;
             }
         }
         #goBackButton{
@@ -116,4 +133,9 @@
             }
         }
     }
+}
+
+@media(max-width:1100px)
+{
+
 }

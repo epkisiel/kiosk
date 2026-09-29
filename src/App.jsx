@@ -47,7 +47,9 @@ function App(){
     setTotalPrice(prev=>prev+price);
   }
 
-  function deleteFromOrder(orderId){
+  function deleteFromOrder(orderId,price){
+    setTotalPrice(prev=>prev-price);
+
     setOrder(currentOrder=>currentOrder.filter(orderedProduct=>orderedProduct.id!==orderId));
     setOrder(prevOrder=>prevOrder.map((o,index)=>{
       return{
