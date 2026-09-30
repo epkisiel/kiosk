@@ -8,7 +8,7 @@ import OrderSummary from './components/OrderSummary.jsx';
 
 function App(){
   const [categories,setCategories]=/*useState([]);*/useState([{id:1,name:"jeden",img:"1"},{id:2,name:"dwa",img:"2"}]);
-  const [products,setProducts]=/*useState([]);*/useState([{id:1,id_category:1,name:"Jeden",price:1.10,img:"11"},{id:2,id_category:2,name:"Dwa",price:2.22,img:"22"}]);
+  const [products,setProducts]=/*useState([]);*/useState([{id:1,id_category:1,name:"Jedennnn aa aaa aaaaaa aaaaaa",price:1.10,img:"11"},{id:2,id_category:2,name:"Dwa",price:2.22,img:"22"}]);
   /* const [integrients,setIntegrients]=useState([]); *///app.jsx -(onclick)-> products.jsx onClick(onclick) -(dane produktu)> App.jsx onclick -> setPageVisibility(product) ->dane produktu?
   const [selectedCategory, setSelectedCategory]=useState(1);
   const [selectedProduct,setSelectedProduct]=useState();
@@ -63,8 +63,8 @@ function App(){
     const fetchData=async()=>{
       try{
         const [categoriesRes,productsRes]=await Promise.all([
-          fetch("https://express-kiosk-api.onrender.com/Categories"),
-          fetch("https://express-kiosk-api.onrender.com//Products")]);
+          fetch("https://express-kiosk-api.onrender.com/categories"),
+          fetch("https://express-kiosk-api.onrender.com/products")]);
 
         if(!categoriesRes.ok || !productsRes.ok){
           console.log("Błąd pobierania danych");

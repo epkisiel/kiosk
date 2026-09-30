@@ -20,7 +20,6 @@
             list-style-type: none;
             margin-top: 10px;
             color:white;
-            font-size: 25px;
             display: flex;
             align-items: center;
 
@@ -28,21 +27,24 @@
                 font-size: 25px;
                 font-weight: 700;
                 width: 50%;
+                padding: 2px;
             }
             & #amount{
                 font-size: 20px;
                 width: 15%;
                 text-align: right;
+                padding: 2px;
             }
             & #price{
                 font-size: 22px;
                 width:25%;
                 text-align: right;
                 padding-right: 20px;
+                padding: 2px;
             }
             & #delete{
                 width: 10%;
-
+                padding: 2px;
                 & button{
                     margin-left: 10px;
                     width: fit-content;
@@ -135,7 +137,36 @@
     }
 }
 
-@media(max-width:1100px)
+@media(max-width: 1000px)
 {
+    #summaryPage{
+        #products p{
+            font-size: 40px;
+        }
+        #products ul li{
+            & #name{
+                font-size: 20px;
+            }
+            & #amount{
+                font-size: 18px;
+            }
+            & #price{
+                font-size: 20px;
+            }
+            & #delete button{
+                font-size: 18px;
+            }
+        }
 
+        & #payment{
+            & p{
+                font-size: 30px;
+            }
+            & #payButtonDisabled, #payButtonEnabled, #goBackButton{
+                font-size: 18px;
+                text-wrap-mode: wrap;
+                min-width:130px;
+            }
+        }
+    }
 }
