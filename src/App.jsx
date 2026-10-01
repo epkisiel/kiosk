@@ -103,7 +103,7 @@ function App(){
         </div>
 
         <div id="orderInfo">
-          <p id="pTotalPrice">Suma: {(Math.round(totalPrice*100)/100)} PLN</p>
+          <p id="pTotalPrice">Suma: {totalPrice.toFixed(2)} PLN</p>
           <div>
             <button id="buttonSummary" onClick={goToSummary}>Przejdź do posumowania</button>
             <button id="buttonCancelOrder" onClick={cancelOrder}>Anuluj zamówienie</button>

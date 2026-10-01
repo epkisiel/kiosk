@@ -5,10 +5,15 @@
     padding:70px;
     padding-left: 5%;
     padding-right: 5%;
+    overflow-y: auto;
+    scrollbar-color: rgba(185, 185, 185, 0.514) transparent;
+
+    box-sizing: border-box;
 
     & #products{
         width: 50%;
         float: left;
+       
 
         & p{
             color: white;
@@ -18,10 +23,10 @@
         }
         & ul li{
             list-style-type: none;
-            margin-top: 10px;
+            margin-top: 15px;
             color:white;
             display: flex;
-            align-items: center;
+            align-items: center; 
 
             & #name {
                 font-size: 25px;
@@ -31,13 +36,13 @@
             }
             & #amount{
                 font-size: 20px;
-                width: 15%;
-                text-align: right;
+                width: 10%;
+                text-align: left;
                 padding: 2px;
             }
             & #price{
                 font-size: 22px;
-                width:25%;
+                width:30%;
                 text-align: right;
                 padding-right: 20px;
                 padding: 2px;
@@ -140,27 +145,51 @@
 @media(max-width: 1000px)
 {
     #summaryPage{
-        #products p{
+        padding: 25px;
+        padding-left: 2%;
+        padding-right: 2%;
+        scrollbar-width: thin;
+
+        & #products{
+            width: 96%;
+            clear: both;
+            margin-bottom: 50px;
+            padding-bottom: 5px;
+        }
+        & #products p{
             font-size: 40px;
         }
-        #products ul li{
+        & #products ul li{
             & #name{
                 font-size: 20px;
             }
             & #amount{
                 font-size: 18px;
+                width: 15%;
             }
             & #price{
                 font-size: 20px;
+                padding-right: 3px;
+                width:25%;
             }
-            & #delete button{
-                font-size: 18px;
+            & #delete {
+                & button{
+                    font-size: 18px;
+                    margin-left: 0;
+                }
             }
         }
 
         & #payment{
+                width: 96%;
+                clear: both;
+                display: flex;
+                text-align: center;
+                height: fit-content;
+
             & p{
                 font-size: 30px;
+                margin-bottom: 20px;
             }
             & #payButtonDisabled, #payButtonEnabled, #goBackButton{
                 font-size: 18px;

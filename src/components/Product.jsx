@@ -22,7 +22,7 @@ function Product({selectedProduct,setPageVisibility,integrients,addToOrder})
             <div id={styles.product}>
                 <img src=/*{selectedProduct.img}*/"react.svg"/>
                 <p>{selectedProduct.name}</p>
-                {selectedProduct.price} PLN<br/>
+                {selectedProduct.price.toFixed(2)} PLN<br/>
 
                 {/* ilosc produktu stepper <div><p/>Button+ Button-</div> usestate*/}
                 <span>Ilość:</span><br/>
