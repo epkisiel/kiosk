@@ -5,22 +5,25 @@
     padding:70px;
     padding-left: 5%;
     padding-right: 5%;
-    overflow-y: auto;
-    scrollbar-color: rgba(185, 185, 185, 0.514) transparent;
-
-    box-sizing: border-box;
+    
+    & p{
+        color: white;
+        font-weight: 600;
+        font-size: 45px;
+        margin-bottom: 20px;
+        height: 45px;
+    }
 
     & #products{
+        height: calc(100vh - 185px);
         width: 50%;
         float: left;
-       
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-color: rgba(185, 185, 185, 0.5) transparent;
+        box-sizing: border-box;
+        padding-right: 15px;
 
-        & p{
-            color: white;
-            font-weight: 600;
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
         & ul li{
             list-style-type: none;
             margin-top: 15px;
@@ -70,6 +73,12 @@
                 }
             } 
         }
+        & ul .evenElement{
+            background-color:rgba(6, 107, 6, 0.5);
+        }
+        & ul .oddElement{
+            background-color:transparent;
+        }
     }
 
     & #payment{
@@ -80,7 +89,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: calc(100vh - 140px);
+        height: calc(100vh - 185px);
 
         & p{
             color: white;
@@ -117,7 +126,7 @@
             font-weight: 600;
             text-wrap-mode: nowrap;
             width: 50%;
-            color:#9c8d06;
+            color: rgba(0, 0, 0, 0.4);
 
             &:hover{
                 cursor: not-allowed;
@@ -147,17 +156,20 @@
     #summaryPage{
         padding: 25px;
         padding-left: 2%;
-        padding-right: 2%;
-        scrollbar-width: thin;
+        padding-right: 2%; 
+
+        & p{
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
 
         & #products{
             width: 96%;
             clear: both;
-            margin-bottom: 50px;
-            padding-bottom: 5px;
-        }
-        & #products p{
-            font-size: 40px;
+            padding-bottom: 15px;
+            padding-right: 2px;
+            height: calc(100vh - 370px);
+            scrollbar-width: thin;
         }
         & #products ul li{
             & #name{
@@ -176,6 +188,7 @@
                 & button{
                     font-size: 18px;
                     margin-left: 0;
+                    padding: 4px;
                 }
             }
         }
@@ -186,6 +199,8 @@
                 display: flex;
                 text-align: center;
                 height: fit-content;
+                border-top: 1px solid var(--secondary-color);
+                padding-top: 30px;
 
             & p{
                 font-size: 30px;

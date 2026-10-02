@@ -39,11 +39,23 @@ function App(){
   }
 
   function addToOrder(addedProduct,amount){
-    const newId=Math.max(...order.map(o=>o.id),0)+1;
-    const newOrder={id:newId,productId:addedProduct.id,name:addedProduct.name,price:addedProduct.price,amount:amount};
-    setOrder([...order,newOrder]); 
+    const existingOrder=order.find(o=>o.id===addedProduct.id);
+    let price=0;
+
+    if(!existingOrder){
+      const newId=Math.max(...order.map(o=>o.id),0)+1;
+      const newOrder={id:newId,productId:addedProduct.id,name:addedProduct.name,price:addedProduct.price,amount:amount};
+      setOrder([...order,newOrder]);   
+      price=newOrder.price*amount;
+    }
+    else if(addedProduct.id==existingOrder.id){
+      setOrder(prev=> prev.map(o=> o.productId==existingOrder.id?
+        {...o, amount:o.amount+amount}:o
+      ));
+      price=existingOrder.price*amount;
+    }
+
     setPageVisibility("main");
-    const price=newOrder.price*amount;
     setTotalPrice(prev=>prev+price);
   }
 

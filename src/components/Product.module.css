@@ -26,7 +26,7 @@
     font-size: xx-large;
     padding-top:20px;
     overflow-y: auto;
-    height: calc(100vh - 68px);
+    height: calc(100vh - 100px);
     scrollbar-width: thin;
 
     & img{
