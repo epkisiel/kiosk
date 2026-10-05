@@ -28,6 +28,7 @@
     overflow-y: auto;
     height: calc(100vh - 100px);
     scrollbar-width: thin;
+    scrollbar-color: rgb(185, 185, 185) rgba(185, 185, 185, 0.1);
 
     & img{
         height: 200px;
@@ -49,10 +50,14 @@
         background-color: transparent;
         font-weight: 600;
         font-size: 20px;
+        transition: transform 0.1s ease;
 
         &:hover{
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
+        }
+        &:active{
+            transform: scale(0.9);
         }
     }
     & span{
@@ -79,12 +84,13 @@
         }
     }
 }
-#integrients{
+#ingredients{
     width: 55%;
     float:left;
     height: calc(100vh - 68px);
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-color: rgb(185, 185, 185) rgba(185, 185, 185, 0.1);
 
     & p{
         font-size: xx-large;
@@ -126,6 +132,14 @@
         margin-top: 5px;
         margin-bottom: 2px;
     }
+
+    & #zeroIngredientsInfo{
+        font-size: 30px;
+        font-weight: 400;
+        margin-left: 10%;
+        color:rgba(0, 0, 0, 0.4);
+        background-color: transparent;
+    }
 }
 @media(max-width:730px){
     #productPage{
@@ -152,7 +166,7 @@
             margin-top: 30px;
         }
     }
-    #integrients{
+    #ingredients{
         scrollbar-width: thin;
 
         & p{
@@ -164,6 +178,10 @@
         & ul li{
             min-height: fit-content;
             width: 100px;
+        }
+        & #zeroIngredientsInfo{
+            font-size: 25px;
+            margin-left: 5%;
         }
     }
 }

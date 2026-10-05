@@ -1,14 +1,15 @@
 import styles from "./Products.module.css"
 function Products({products,selectedCategory,selectProduct}){
+
     return(
         <>
             <ul id={styles.ulProducts}>
                 {products.map((product)=>(
-                    product.id_category==selectedCategory &&
+                    product.category_id==selectedCategory &&
                     <li className={styles.liProducts} key={product.id} onClick={()=>{selectProduct(product.id)}}>
                         <img src={"react.svg"}/>
                         <p>{product.name} <br/>
-                        <span>{product.price.toFixed(2)} PLN</span></p>
+                        <span>{Number(product.price).toFixed(2)} PLN</span></p>
                     </li>))
                 }
             </ul>

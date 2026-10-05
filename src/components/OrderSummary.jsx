@@ -19,7 +19,7 @@ function OrderSummary({order, totalPrice, setPageVisibility, deleteFromOrder}){
             </div>
 
             <div id={styles.payment}>
-                <p>Suma: {totalPrice.toFixed(2)} PLN</p>
+                <p>Suma: {Math.max(0, totalPrice).toFixed(2)} PLN</p>
 
                 <button id={order.length===0 ? styles.payButtonDisabled : styles.payButtonEnabled} disabled={order.length===0? true: false}>Zamów i zapłać</button>
                 <button id={styles.goBackButton} onClick={()=>{setPageVisibility("main")}}>Wróć do zamawiania</button>

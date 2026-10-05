@@ -1,9 +1,10 @@
 import styles from "./Product.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function Product({selectedProduct,setPageVisibility,integrients,addToOrder})
+function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,product_ingredient})
 {
     const [amount,setAmount]=useState(1);
+    const [ingredientsToShow,setIngredientsToShow]=useState([]);
 
     function plusClicked(){
         if(amount<50){
@@ -16,31 +17,44 @@ function Product({selectedProduct,setPageVisibility,integrients,addToOrder})
         }
     }
 
+    function filterIngredients(){
+        let filteredIngredients=[];
+        for(let i=0;i<product_ingredient.length;i++){
+            if(product_ingredient[i].product_id==selectedProduct.id){
+                filteredIngredients.push(ingredients.find(ingredient=>ingredient.id==product_ingredient[i].ingredient_id));
+            }
+        }
+        setIngredientsToShow(filteredIngredients);
+    }
+    useEffect(()=>{
+        filterIngredients();
+    },[]);
+
     return(<>
         <button id={styles.goBackButton} onClick={()=>{setPageVisibility("main")}}>&lt; Wróć</button>
         <div id={styles.productPage}>
             <div id={styles.product}>
-                <img src=/*{selectedProduct.img}*/"react.svg"/>
+                <img src="react.svg"/>
                 <p>{selectedProduct.name}</p>
-                {selectedProduct.price.toFixed(2)} PLN<br/>
+                {Number(selectedProduct.price).toFixed(2)} PLN<br/>
 
-                {/* ilosc produktu stepper <div><p/>Button+ Button-</div> usestate*/}
                 <span>Ilość:</span><br/>
-                <button onClick={minusClicked}>-</button>{amount}<button onClick={plusClicked}>+</button><br/>
+                <button onClick={minusClicked}>-</button>  {amount}  <button onClick={plusClicked}>+</button><br/>
                 <button id={styles.addButton} onClick={()=>{addToOrder(selectedProduct,amount)}}>Dodaj do zamówienia</button>
             </div>
-            <div id={styles.integrients}>
+            <div id={styles.ingredients}>
                 <p>Składniki: </p>
 
                 <ul>
-                    {integrients.map((integrient)=>(
-                            <li key={integrient.id}>
-                            <img src=/*{`https://express-kiosk-api.onrender.com/img/${integrient.img}`}*/"react.svg"/>
-                            <p>{integrient.name}</p>
-                            <span>Ilość: {integrient.amount}</span>
+                    {ingredientsToShow.map((ingredient)=>(
+                        <li key={ingredient.id}>
+                            <img src=/*{`https://express-kiosk-api.onrender.com/`}*/"react.svg"/>
+                            <p>{ingredient.name}</p>
+                            <span>Cena: {ingredient.price} PLN</span>
                         </li>))
                     }
                 </ul>
+                {ingredientsToShow.length===0 && <p id={styles.zeroIngredientsInfo}>Brak składników</p>}
             </div>
         </div>
     </>)

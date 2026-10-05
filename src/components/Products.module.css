@@ -6,6 +6,7 @@
 }
 .liProducts span{
     font-weight: 400;
+    font-size: large;
 }
 #ulProducts{
     list-style: none;
@@ -16,7 +17,8 @@
     padding: 15px;
 }
 .liProducts{
-    min-height: 170px;
+    min-height: 180px;
+    height: 250px;
     width: 180px;
     padding:5px;
     background-color: var(--list-element-color);
@@ -41,7 +43,7 @@
     .liProducts{
         font-size: 15px;
         width: 120px;
-        min-height: 140px;
+        min-height: 160px;
         height: fit-content;
     }
 }
@@ -49,6 +51,7 @@
     .liProducts{
         width: 230px;
         min-height: 220px;
+        height: 280px;
         padding:10px;
     }
 }
