@@ -7,7 +7,7 @@ function Products({products,selectedCategory,selectProduct}){
                 {products.map((product)=>(
                     product.category_id==selectedCategory &&
                     <li className={styles.liProducts} key={product.id} onClick={()=>{selectProduct(product.id)}}>
-                        <img src={"react.svg"}/>
+                        <img src={`https://express-kiosk-api.onrender.com/images${product.image_path}`} crossOrigin="anonymous"/>
                         <p>{product.name} <br/>
                         <span>{Number(product.price).toFixed(2)} PLN</span></p>
                     </li>))

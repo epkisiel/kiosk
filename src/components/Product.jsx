@@ -34,7 +34,7 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
         <button id={styles.goBackButton} onClick={()=>{setPageVisibility("main")}}>&lt; Wróć</button>
         <div id={styles.productPage}>
             <div id={styles.product}>
-                <img src="react.svg"/>
+                <img src={`https://express-kiosk-api.onrender.com/images${selectedProduct.image_path}`} crossOrigin="anonymous"/>
                 <p>{selectedProduct.name}</p>
                 {Number(selectedProduct.price).toFixed(2)} PLN<br/>
 
@@ -48,7 +48,7 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
                 <ul>
                     {ingredientsToShow.map((ingredient)=>(
                         <li key={ingredient.id}>
-                            <img src=/*{`https://express-kiosk-api.onrender.com/`}*/"react.svg"/>
+                            <img src={`https://express-kiosk-api.onrender.com/images${ingredient.image_path}`} crossOrigin="anonymous"/>
                             <p>{ingredient.name}</p>
                             <span>Cena: {ingredient.price} PLN</span>
                         </li>))
