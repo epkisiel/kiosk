@@ -11,6 +11,7 @@ function App(){
   const [products,setProducts]=useState([]);
   const [ingredients,setIngredients]=useState([]);
   const [product_ingredient,setProduct_ingredient]=useState([]);
+  const [meals, setMeals]=useState([]);
 
   const [selectedCategory, setSelectedCategory]=useState(1);
   const [selectedProduct,setSelectedProduct]=useState();
@@ -19,6 +20,42 @@ function App(){
   const [pageVisibility,setPageVisibility]=useState("start");
 
   const [order,setOrder]=useState([]);
+
+
+  useEffect(()=>{
+    const fetchData=async()=>{
+      try{
+        const [categoriesRes,productsRes,ingredientsRes,product_ingredientRes,mealsRes]=await Promise.all([
+          fetch("https://express-kiosk-api.onrender.com/categories"),
+          fetch("https://express-kiosk-api.onrender.com/products"),
+          fetch("https://express-kiosk-api.onrender.com/ingredients"),
+          fetch("https://express-kiosk-api.onrender.com/products_ingredients"),
+          fetch("https://express-kiosk-api.onrender.com/meals")
+        ]);
+
+        if(!categoriesRes.ok || !productsRes.ok || !ingredientsRes.ok || !product_ingredientRes.ok || !mealsRes.ok){
+          console.log("Błąd pobierania danych");
+        }
+        else{
+          const categoriesJson=await categoriesRes.json();
+          const productsJson=await productsRes.json();
+          const ingredientsJson=await ingredientsRes.json();
+          const product_ingredientJson=await product_ingredientRes.json();
+          const mealsJson=await mealsRes.json();
+
+          setCategories(categoriesJson);
+          setProducts(productsJson);
+          setIngredients(ingredientsJson);
+          setProduct_ingredient(product_ingredientJson);
+          setMeals(mealsJson);
+        }
+      }catch(err){
+        console.log("Błąd: "+err)
+      }
+    }
+
+    fetchData();
+  },[]);
 
 
   function selectCategory(id){
@@ -71,38 +108,7 @@ function App(){
   }
 
 
-  useEffect(()=>{
-    const fetchData=async()=>{
-      try{
-        const [categoriesRes,productsRes,ingredientsRes,product_ingredientRes]=await Promise.all([
-          fetch("https://express-kiosk-api.onrender.com/categories"),
-          fetch("https://express-kiosk-api.onrender.com/products"),
-          fetch("https://express-kiosk-api.onrender.com/ingredients"),
-          fetch("https://express-kiosk-api.onrender.com/products_ingredients")]);
-
-        if(!categoriesRes.ok || !productsRes.ok || !ingredientsRes.ok || !product_ingredientRes.ok){
-          console.log("Błąd pobierania danych");
-        }
-        else{
-          const categoriesJson=await categoriesRes.json();
-          const productsJson=await productsRes.json();
-          const ingredientsJson=await ingredientsRes.json();
-          const product_ingredientJson=await product_ingredientRes.json();
-
-          setCategories(categoriesJson);
-          setProducts(productsJson);
-          setIngredients(ingredientsJson);
-          setProduct_ingredient(product_ingredientJson);
-        }
-      }catch(err){
-        console.log("Błąd: "+err)
-      }
-    }
-
-    fetchData();
-  },[]);
   
-
   return(
   <>
     {pageVisibility=="start" && 
@@ -118,7 +124,7 @@ function App(){
         </div>
 
         <div id="products">
-          <Products products={products} selectedCategory={selectedCategory} selectProduct={selectProduct}/>
+          <Products products={products} meals={meals} selectedCategory={selectedCategory} selectProduct={selectProduct}/>
         </div>
 
         <div id="orderInfo">
