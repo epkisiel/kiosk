@@ -22,6 +22,20 @@
   }
 }
 
+#errorPage{
+  padding: 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: xx-large;
+  & P{
+    font-weight: 600;
+    margin: 10px;
+  }
+}
+
 #productPage{
   width: 100%;
 }
@@ -71,7 +85,8 @@
 }
 #buttonSummary{
   margin: 5px;
-  background-color: transparent;
+  background-color: var(--main-color);
+  color: white;
   border: 2px var(--main-color) solid;
   font-size: larger;
   height: fit-content;
@@ -81,13 +96,14 @@
   text-wrap-mode: nowrap;
 
   &:hover{
-    background-color: var(--main-color);
-    color:white;
+  background-color: transparent;
+    color:black;
   }
 }
 #buttonCancelOrder{
   margin: 5px;
-  background-color: transparent;
+  background-color: var(--delete-color);
+  color:white;
   border: 2px var(--delete-color) solid;
   font-size: larger;
   height: fit-content;
@@ -96,14 +112,17 @@
   font-weight: 600;
 
   &:hover{
-    background-color: var(--delete-color);
-    color: white;
+    background-color: transparent;
+    color: black;
   }
 }
 #pTotalPrice{
   font-weight: 600;
-  font-size:x-large;
+  font-size: xx-large;
   margin-left: 5%;
+  @media(max-width:700px){
+    font-size: x-large;
+  }
 }
 
 @media(max-width:900px){
@@ -133,5 +152,8 @@
   }
   #products{
     padding-bottom: 40px;
+  }
+  #pTotalPrice{
+    font-size: x-large;
   }
 }

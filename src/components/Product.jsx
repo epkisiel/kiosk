@@ -50,7 +50,7 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
                 <button id={styles.addButton} onClick={()=>{addToOrder(selectedProduct,amount)}}>Dodaj do zamówienia</button>
             </div>
             <div id={styles.ingredients}>
-                <p>Składniki: </p>
+                <p>{selectedType=="product"?"Składniki:":"Produkty:"}</p>
 
                 <ul>
                     {ingredientsToShow.map((ingredient)=>(
@@ -61,7 +61,7 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
                         </li>))
                     }
                 </ul>
-                {ingredientsToShow.length===0 && <p id={styles.zeroIngredientsInfo}>Brak składników</p>}
+                {ingredientsToShow.length===0 && <p id={styles.zeroIngredientsInfo}>Brak {selectedType=="product"?"składników":"produktów"}</p>}
             </div>
         </div>
     </>)

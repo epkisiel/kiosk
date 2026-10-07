@@ -4,6 +4,7 @@ import Categories from "./components/Categories.jsx";
 import Products from "./components/Products.jsx";
 import Product from "./components/Product.jsx";
 import OrderSummary from './components/OrderSummary.jsx';
+import Payment from "./components/Payment.jsx"
 
 
 function App(){
@@ -38,6 +39,7 @@ function App(){
 
         if(!categoriesRes.ok || !productsRes.ok || !ingredientsRes.ok || !product_ingredientRes.ok || !mealsRes.ok || !meal_productRes){
           console.log("Błąd pobierania danych");
+          setPageVisibility("error");
         }
         else{
           const categoriesJson=await categoriesRes.json();
@@ -125,6 +127,13 @@ function App(){
   
   return(
   <>
+    {pageVisibility=="error" &&
+      <div id="errorPage">
+        <p>Wystąpij błąd podczas ładowania strony</p>
+        Spróbuj ponownie później
+      </div>
+    }
+
     {pageVisibility=="start" && 
       <div id="startPage" onClick={()=>{setPageVisibility("main")}}>
         <p>Witaj!<br/>Kliknij, aby rozpocząć</p>  
@@ -157,6 +166,10 @@ function App(){
 
     {pageVisibility=="summary" &&
       <OrderSummary order={order} totalPrice={totalPrice} setPageVisibility={setPageVisibility} deleteFromOrder={deleteFromOrder}/>
+    }
+
+    {pageVisibility=="payment" &&
+      <Payment/> 
     }
   </>
   )
