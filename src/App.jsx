@@ -12,9 +12,11 @@ function App(){
   const [ingredients,setIngredients]=useState([]);
   const [product_ingredient,setProduct_ingredient]=useState([]);
   const [meals, setMeals]=useState([]);
+  const [meal_product,setMeal_product]=useState([]);
 
   const [selectedCategory, setSelectedCategory]=useState(1);
   const [selectedProduct,setSelectedProduct]=useState();
+  const [selectedType,setSelectedType]=useState("");
 
   const [totalPrice,setTotalPrice]=useState(0);
   const [pageVisibility,setPageVisibility]=useState("start");
@@ -25,15 +27,16 @@ function App(){
   useEffect(()=>{
     const fetchData=async()=>{
       try{
-        const [categoriesRes,productsRes,ingredientsRes,product_ingredientRes,mealsRes]=await Promise.all([
+        const [categoriesRes,productsRes,ingredientsRes,product_ingredientRes,mealsRes,meal_productRes]=await Promise.all([
           fetch("https://express-kiosk-api.onrender.com/categories"),
           fetch("https://express-kiosk-api.onrender.com/products"),
           fetch("https://express-kiosk-api.onrender.com/ingredients"),
           fetch("https://express-kiosk-api.onrender.com/products_ingredients"),
-          fetch("https://express-kiosk-api.onrender.com/meals")
+          fetch("https://express-kiosk-api.onrender.com/meals"),
+          fetch("https://express-kiosk-api.onrender.com/meals_products")
         ]);
 
-        if(!categoriesRes.ok || !productsRes.ok || !ingredientsRes.ok || !product_ingredientRes.ok || !mealsRes.ok){
+        if(!categoriesRes.ok || !productsRes.ok || !ingredientsRes.ok || !product_ingredientRes.ok || !mealsRes.ok || !meal_productRes){
           console.log("Błąd pobierania danych");
         }
         else{
@@ -42,12 +45,14 @@ function App(){
           const ingredientsJson=await ingredientsRes.json();
           const product_ingredientJson=await product_ingredientRes.json();
           const mealsJson=await mealsRes.json();
+          const meal_productJson=await meal_productRes.json();
 
           setCategories(categoriesJson);
           setProducts(productsJson);
           setIngredients(ingredientsJson);
           setProduct_ingredient(product_ingredientJson);
           setMeals(mealsJson);
+          setMeal_product(meal_productJson);
         }
       }catch(err){
         console.log("Błąd: "+err)
@@ -57,26 +62,35 @@ function App(){
     fetchData();
   },[]);
 
+  
 
   function selectCategory(id){
     setSelectedCategory(id); 
   }
-  function selectProduct(id){
-    setSelectedProduct(products[id-1]);
-    setPageVisibility("product")
+
+  function selectProduct(id,selected){
+    if(selected=="product")
+      setSelectedProduct(products[id-1]);
+    else if(selected=="meal")
+      setSelectedProduct(meals[id-1]);
+
+    setPageVisibility("product");
+    setSelectedType(selected);
   }
+
   function cancelOrder(){
     setPageVisibility("start");
     setOrder([]);
     setTotalPrice(0);
     setSelectedCategory(1);
   }
+
   function goToSummary(){
     setPageVisibility("summary")
   }
 
   function addToOrder(addedProduct,amount){
-    const existingOrder=order.find(o=>o.id===addedProduct.id);
+    const existingOrder=order.find(o=>o.name===addedProduct.name);
     let price=0;
 
     if(!existingOrder){
@@ -85,8 +99,8 @@ function App(){
       setOrder([...order,newOrder]);   
       price=newOrder.price*amount;
     }
-    else if(addedProduct.id==existingOrder.id){
-      setOrder(prev=> prev.map(o=> o.productId==existingOrder.id?
+    else if(addedProduct.name==existingOrder.name){
+      setOrder(prev=> prev.map(o=> o.name==existingOrder.name?
         {...o, amount:o.amount+amount}:o
       ));
       price=existingOrder.price*amount;
@@ -138,7 +152,7 @@ function App(){
     }
 
     {pageVisibility=="product" &&
-      <Product selectedProduct={selectedProduct} setPageVisibility={setPageVisibility} ingredients={ingredients} addToOrder={addToOrder} product_ingredient={product_ingredient}/>
+      <Product selectedProduct={selectedProduct} setPageVisibility={setPageVisibility} ingredients={selectedType=="product"?ingredients:products} addToOrder={addToOrder} product_ingredient={selectedType=="product"?product_ingredient:meal_product} selectedType={selectedType}/>
     }
 
     {pageVisibility=="summary" &&

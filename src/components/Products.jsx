@@ -6,7 +6,7 @@ function Products({products,meals,selectedCategory,selectProduct}){
             <ul id={styles.ulProducts}>
                 {products.map((product)=>(
                     product.category_id==selectedCategory &&
-                    <li className={styles.liProducts} key={product.id} onClick={()=>{selectProduct(product.id)}}>
+                    <li className={styles.liProducts} key={product.id} onClick={()=>{selectProduct(product.id,"product")}}>
                         <img src={`https://express-kiosk-api.onrender.com/images${product.image_path}`} crossOrigin="anonymous"/>
                         <p>{product.name} <br/>
                         <span>{Number(product.price).toFixed(2)} PLN</span></p>
@@ -14,7 +14,7 @@ function Products({products,meals,selectedCategory,selectProduct}){
                 }
                 {meals.map((meal)=>(
                     meal.category_id==selectedCategory &&
-                    <li className={styles.liProducts} key={meal.id} onClick={()=>{selectProduct(meal.id)}}>
+                    <li className={styles.liProducts} key={meal.id} onClick={()=>{selectProduct(meal.id, "meal")}}>
                         <img src={`https://express-kiosk-api.onrender.com/images${meal.image_path}`} crossOrigin="anonymous"/>
                         <p>{meal.name} <br/>
                         <span>{Number(meal.price).toFixed(2)} PLN</span></p>

@@ -7,7 +7,8 @@
     width: 120px;
     padding: 10px;
     margin: 15px;
-    background-color: var(--list-element-color);
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +16,7 @@
     transition: transform 0.1s ease, background-color 0.1s ease;
 
     &:hover{
-       background-color: var(--secondary-color);
+       background-color: white;
     }
     &:active{
         transform: scale(0.95);

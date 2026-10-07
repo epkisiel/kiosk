@@ -9,7 +9,7 @@ function OrderSummary({order, totalPrice, setPageVisibility, deleteFromOrder}){
                 <ul>
                     {order.map((product)=>(
                         <li className={product.id % 2 === 0 ? styles.evenElement:styles.oddElement} key={product.id}>
-                            <div id={styles.name}>{product.id}{product.name}</div>
+                            <div id={styles.name}>{product.name}</div>
                             <div id={styles.amount}>Ilość: {product.amount}</div>
                             <div id={styles.price}>{(product.price*product.amount).toFixed(2)} PLN </div>
                             <div id={styles.delete} onClick={()=>{deleteFromOrder(product.id,product.price*product.amount)}}><button>Usuń</button></div>

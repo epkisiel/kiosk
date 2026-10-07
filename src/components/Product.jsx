@@ -1,7 +1,7 @@
 import styles from "./Product.module.css";
 import { useState, useEffect } from "react";
 
-function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,product_ingredient})
+function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,product_ingredient,selectedType})
 {
     const [amount,setAmount]=useState(1);
     const [ingredientsToShow,setIngredientsToShow]=useState([]);
@@ -20,8 +20,15 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
     function filterIngredients(){
         let filteredIngredients=[];
         for(let i=0;i<product_ingredient.length;i++){
-            if(product_ingredient[i].product_id==selectedProduct.id){
-                filteredIngredients.push(ingredients.find(ingredient=>ingredient.id==product_ingredient[i].ingredient_id));
+            if(selectedType=="product"){
+                if(product_ingredient[i].product_id==selectedProduct.id){
+                    filteredIngredients.push(ingredients.find(ingredient=>ingredient.id==product_ingredient[i].ingredient_id));
+                }
+            }
+            else if(selectedType=="meal"){
+                if(product_ingredient[i].meal_id==selectedProduct.id){
+                    filteredIngredients.push(ingredients.find(ingredient=>ingredient.id==product_ingredient[i].product_id));
+                }
             }
         }
         setIngredientsToShow(filteredIngredients);
