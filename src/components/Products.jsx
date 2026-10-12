@@ -1,7 +1,6 @@
 import styles from "./Products.module.css";
 
 function Products({products,meals,selectedCategory,selectProduct}){
-
     return(
         <>
             <ul id={styles.ulProducts}>

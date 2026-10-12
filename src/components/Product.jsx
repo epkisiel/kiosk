@@ -32,6 +32,7 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
                 }
             }
         }
+
         setIngredientsToShow(filteredIngredients);
     }
 
@@ -43,7 +44,9 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
     return(
         <>
             <button id={styles.goBackButton} onClick={()=>{setPageVisibility("main")}}>&lt; Wróć</button>
+
             <div id={styles.productPage}>
+
                 <div id={styles.product}>
                     <img src={`https://express-kiosk-api.onrender.com/images${selectedProduct.image_path}`} crossOrigin="anonymous"/>
                     <p>{selectedProduct.name}</p>
@@ -53,6 +56,7 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
                     <button onClick={minusClicked}>-</button>  {amount}  <button onClick={plusClicked}>+</button><br/>
                     <button id={styles.addButton} onClick={()=>{addToOrder(selectedProduct,amount)}}>Dodaj do zamówienia</button>
                 </div>
+                
                 <div id={styles.ingredients}>
                     <p>{selectedType=="product"?"Składniki:":"Produkty:"}</p>
 
@@ -67,6 +71,7 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
                     </ul>
                     {ingredientsToShow.length===0 && <p id={styles.zeroIngredientsInfo}>Brak {selectedType=="product"?"składników":"produktów"}</p>}
                 </div>
+
             </div>
         </>
     )

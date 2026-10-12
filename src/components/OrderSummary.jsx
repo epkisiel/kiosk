@@ -1,7 +1,6 @@
 import styles from "./OrderSummary.module.css";
 
 function OrderSummary({order, totalPrice, setPageVisibility, deleteFromOrder}){
-    
     return(
         <div id={styles.summaryPage}>
             <p>Podsumowanie</p>
@@ -25,6 +24,7 @@ function OrderSummary({order, totalPrice, setPageVisibility, deleteFromOrder}){
                 <button id={order.length===0 ? styles.payButtonDisabled : styles.payButtonEnabled} disabled={order.length===0? true: false} onClick={()=>{setPageVisibility("payment")}}>Zamów i zapłać</button>
                 <button id={styles.goBackButton} onClick={()=>{setPageVisibility("main")}}>Wróć do zamawiania</button>
             </div>
+
         </div>
     )
 }

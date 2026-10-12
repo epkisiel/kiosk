@@ -58,7 +58,7 @@ function App(){
         }
       }
       catch(err){
-        console.log("Błąd: "+err)
+        console.log("Błąd: "+err);
       }
     }
 
@@ -85,7 +85,7 @@ function App(){
   }
 
   function goToSummary(){
-    setPageVisibility("summary")
+    setPageVisibility("summary");
   }
 
   function addToOrder(addedProduct,amount){
