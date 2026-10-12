@@ -9,6 +9,9 @@ body{
   overflow-y: hidden;
   overflow-x: hidden;
 }
+button{
+  cursor: pointer;
+}
 :root{
   --main-color: rgb(0, 92, 0);
   --secondary-color:  rgb(240, 217, 9);

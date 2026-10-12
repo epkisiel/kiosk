@@ -7,6 +7,7 @@
     padding: 15px;
 
     & .liProducts{
+        cursor: pointer;
         min-height: 180px;
         height: 250px;
         width: 180px;
@@ -28,15 +29,18 @@
         }
 
         & img{
+            cursor: pointer;
             width: 90%;
         }
         & p{
+            cursor: pointer;
             font-size: larger;
             margin-top: auto;
             text-align: center;
             font-weight: 600;
         }
         & span{
+            cursor: pointer;
             font-weight: 400;
             font-size: large;
         }
