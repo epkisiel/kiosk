@@ -4,7 +4,7 @@ import Categories from "./components/Categories.jsx";
 import Products from "./components/Products.jsx";
 import Product from "./components/Product.jsx";
 import OrderSummary from './components/OrderSummary.jsx';
-import Payment from "./components/Payment.jsx"
+import Payment from "./components/Payment.jsx";
 
 
 function App(){
@@ -56,7 +56,8 @@ function App(){
           setMeals(mealsJson);
           setMeal_product(meal_productJson);
         }
-      }catch(err){
+      }
+      catch(err){
         console.log("Błąd: "+err)
       }
     }
@@ -65,10 +66,6 @@ function App(){
   },[]);
 
   
-
-  function selectCategory(id){
-    setSelectedCategory(id); 
-  }
 
   function selectProduct(id,selected){
     if(selected=="product")
@@ -126,52 +123,54 @@ function App(){
 
   
   return(
-  <>
-    {pageVisibility=="error" &&
-      <div id="errorPage">
-        <p>Wystąpij błąd podczas ładowania strony</p>
-        Spróbuj ponownie później
-      </div>
-    }
-
-    {pageVisibility=="start" && 
-      <div id="startPage" onClick={()=>{setPageVisibility("main")}}>
-        <p>Witaj!<br/>Kliknij, aby rozpocząć</p>  
-      </div>
-    }
-
-    {pageVisibility=="main" &&
-      <div id="mainPage">
-        <div id="categories">
-          <Categories categories={categories} selectCategory={selectCategory}/>
+    <>
+      {pageVisibility=="error" &&
+        <div id="errorPage">
+          <p>Wystąpij błąd podczas ładowania strony</p>
+          Spróbuj ponownie później
         </div>
+      }
 
-        <div id="products">
-          <Products products={products} meals={meals} selectedCategory={selectedCategory} selectProduct={selectProduct}/>
+      {pageVisibility=="start" && 
+        <div id="startPage" onClick={()=>{setPageVisibility("main")}}>
+          <p>Witaj!<br/>Kliknij, aby rozpocząć</p>  
         </div>
+      }
 
-        <div id="orderInfo">
-          <p id="pTotalPrice">Suma: {Math.max(0, totalPrice).toFixed(2)} PLN</p>
-          <div>
-            <button id="buttonSummary" onClick={goToSummary}>Przejdź do posumowania</button>
-            <button id="buttonCancelOrder" onClick={cancelOrder}>Anuluj zamówienie</button>
+      {pageVisibility=="main" &&
+        <div id="mainPage">
+
+          <div id="categories">
+            <Categories categories={categories} setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory}/>
           </div>
+
+          <div id="products">
+            <Products products={products} meals={meals} selectedCategory={selectedCategory} selectProduct={selectProduct}/>
+          </div>
+
+          <div id="orderInfo">
+            <p id="pTotalPrice">Suma: {Math.max(0, totalPrice).toFixed(2)} PLN</p>
+            <div>
+              <button id="buttonSummary" onClick={goToSummary}>Przejdź do posumowania</button>
+              <button id="buttonCancelOrder" onClick={cancelOrder}>Anuluj zamówienie</button>
+            </div>
+          </div>
+          
         </div>
-      </div>
-    }
+      }
 
-    {pageVisibility=="product" &&
-      <Product selectedProduct={selectedProduct} setPageVisibility={setPageVisibility} ingredients={selectedType=="product"?ingredients:products} addToOrder={addToOrder} product_ingredient={selectedType=="product"?product_ingredient:meal_product} selectedType={selectedType}/>
-    }
+      {pageVisibility=="product" &&
+        <Product selectedProduct={selectedProduct} setPageVisibility={setPageVisibility} ingredients={selectedType=="product"?ingredients:products} addToOrder={addToOrder} product_ingredient={selectedType=="product"?product_ingredient:meal_product} selectedType={selectedType}/>
+      }
 
-    {pageVisibility=="summary" &&
-      <OrderSummary order={order} totalPrice={totalPrice} setPageVisibility={setPageVisibility} deleteFromOrder={deleteFromOrder}/>
-    }
+      {pageVisibility=="summary" &&
+        <OrderSummary order={order} totalPrice={totalPrice} setPageVisibility={setPageVisibility} deleteFromOrder={deleteFromOrder}/>
+      }
 
-    {pageVisibility=="payment" &&
-      <Payment/> 
-    }
-  </>
+      {pageVisibility=="payment" &&
+        <Payment/> 
+      }
+    </>
   )
 }
 export default App;

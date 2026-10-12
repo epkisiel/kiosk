@@ -19,6 +19,7 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
 
     function filterIngredients(){
         let filteredIngredients=[];
+        
         for(let i=0;i<product_ingredient.length;i++){
             if(selectedType=="product"){
                 if(product_ingredient[i].product_id==selectedProduct.id){
@@ -33,37 +34,41 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
         }
         setIngredientsToShow(filteredIngredients);
     }
+
     useEffect(()=>{
         filterIngredients();
     },[]);
 
-    return(<>
-        <button id={styles.goBackButton} onClick={()=>{setPageVisibility("main")}}>&lt; Wróć</button>
-        <div id={styles.productPage}>
-            <div id={styles.product}>
-                <img src={`https://express-kiosk-api.onrender.com/images${selectedProduct.image_path}`} crossOrigin="anonymous"/>
-                <p>{selectedProduct.name}</p>
-                {Number(selectedProduct.price).toFixed(2)} PLN<br/>
 
-                <span>Ilość:</span><br/>
-                <button onClick={minusClicked}>-</button>  {amount}  <button onClick={plusClicked}>+</button><br/>
-                <button id={styles.addButton} onClick={()=>{addToOrder(selectedProduct,amount)}}>Dodaj do zamówienia</button>
-            </div>
-            <div id={styles.ingredients}>
-                <p>{selectedType=="product"?"Składniki:":"Produkty:"}</p>
+    return(
+        <>
+            <button id={styles.goBackButton} onClick={()=>{setPageVisibility("main")}}>&lt; Wróć</button>
+            <div id={styles.productPage}>
+                <div id={styles.product}>
+                    <img src={`https://express-kiosk-api.onrender.com/images${selectedProduct.image_path}`} crossOrigin="anonymous"/>
+                    <p>{selectedProduct.name}</p>
+                    {Number(selectedProduct.price).toFixed(2)} PLN<br/>
 
-                <ul>
-                    {ingredientsToShow.map((ingredient)=>(
-                        <li key={ingredient.id}>
-                            <img src={`https://express-kiosk-api.onrender.com/images${ingredient.image_path}`} crossOrigin="anonymous"/>
-                            <p>{ingredient.name}</p>
-                            <span>Cena: {ingredient.price} PLN</span>
-                        </li>))
-                    }
-                </ul>
-                {ingredientsToShow.length===0 && <p id={styles.zeroIngredientsInfo}>Brak {selectedType=="product"?"składników":"produktów"}</p>}
+                    <span>Ilość:</span><br/>
+                    <button onClick={minusClicked}>-</button>  {amount}  <button onClick={plusClicked}>+</button><br/>
+                    <button id={styles.addButton} onClick={()=>{addToOrder(selectedProduct,amount)}}>Dodaj do zamówienia</button>
+                </div>
+                <div id={styles.ingredients}>
+                    <p>{selectedType=="product"?"Składniki:":"Produkty:"}</p>
+
+                    <ul>
+                        {ingredientsToShow.map((ingredient)=>(
+                            <li key={ingredient.id}>
+                                <img src={`https://express-kiosk-api.onrender.com/images${ingredient.image_path}`} crossOrigin="anonymous"/>
+                                <p>{ingredient.name}</p>
+                                <span>Cena: {ingredient.price} PLN</span>
+                            </li>
+                        ))}
+                    </ul>
+                    {ingredientsToShow.length===0 && <p id={styles.zeroIngredientsInfo}>Brak {selectedType=="product"?"składników":"produktów"}</p>}
+                </div>
             </div>
-        </div>
-    </>)
+        </>
+    )
 }
-export default Product
+export default Product;

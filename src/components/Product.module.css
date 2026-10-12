@@ -108,32 +108,33 @@
         flex-wrap: wrap;
         gap:15px;
         padding: 15px;
-    }
-    & ul li{
-        min-height: 210px;
-        width: 140px;
-        padding:5px;
-        background-color: var(--list-element-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-    }
-    & ul li p{
-        font-size: large;
-        overflow-wrap: break-word;
-        background-color: transparent;
-        z-index: 0;
-        text-wrap-mode: wrap;
-        
-    }
-    & ul li img{
-        width: 90%;
-        margin-top: 5px;
-        margin-bottom: 2px;
-    }
 
+        & li{
+            min-height: 210px;
+            width: 140px;
+            padding:5px;
+            background-color: var(--list-element-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+
+            & p{
+                font-size: large;
+                overflow-wrap: break-word;
+                background-color: transparent;
+                z-index: 0;
+                text-wrap-mode: wrap;     
+            }
+            & img{
+                width: 90%;
+                margin-top: 5px;
+                margin-bottom: 2px;
+            }
+        }
+    }
+    
     & #zeroIngredientsInfo{
         font-size: 30px;
         font-weight: 400;
@@ -142,6 +143,7 @@
         background-color: transparent;
     }
 }
+
 @media(max-width:730px){
     #productPage{
         padding-top: 5px;
@@ -174,11 +176,11 @@
             font-size: 25px;
         }
         & ul {
-            gap:10px;
-        }
-        & ul li{
-            min-height: fit-content;
-            width: 100px;
+            gap:10px;          
+            & li{
+                min-height: fit-content;
+                width: 100px;
+            }
         }
         & #zeroIngredientsInfo{
             font-size: 25px;

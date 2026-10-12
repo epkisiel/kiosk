@@ -24,13 +24,16 @@
 
 #errorPage{
   padding: 10px;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   font-size: xx-large;
-  & P{
+  box-sizing: border-box;
+
+  & p{
     font-weight: 600;
     margin: 10px;
   }
@@ -77,53 +80,58 @@
   bottom:0;
   display: flex;
   align-items: center;
-  padding: 10px
-}
-#orderInfo div{
-  width: 50%;
-  height: 100%;
-}
-#buttonSummary{
-  margin: 5px;
-  background-color: var(--main-color);
-  color: white;
-  border: 2px var(--main-color) solid;
-  font-size: larger;
-  height: fit-content;
   padding: 10px;
-  border-radius: 10px;
-  font-weight: 600;
-  text-wrap-mode: nowrap;
 
-  &:hover{
-  background-color: transparent;
-    color:black;
+  & div{
+    width: 50%;
+    height: 100%;
   }
-}
-#buttonCancelOrder{
-  margin: 5px;
-  background-color: var(--delete-color);
-  color:white;
-  border: 2px var(--delete-color) solid;
-  font-size: larger;
-  height: fit-content;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: 600;
 
-  &:hover{
-    background-color: transparent;
-    color: black;
+  & #buttonSummary{
+    margin: 5px;
+    background-color: var(--main-color);
+    color: white;
+    border: 2px var(--main-color) solid;
+    font-size: larger;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-wrap-mode: nowrap;
+
+    &:hover{
+      background-color: transparent;
+      color:black;
+    }
+  }
+
+  & #buttonCancelOrder{
+    margin: 5px;
+    background-color: var(--delete-color);
+    color:white;
+    border: 2px var(--delete-color) solid;
+    font-size: larger;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+
+    &:hover{
+      background-color: transparent;
+      color: black;
+    }
+  }
+  & #pTotalPrice{
+    font-weight: 600;
+    font-size: xx-large;
+    margin-left: 5%;
+    
+    @media(max-width:700px){
+      font-size: x-large;
+    }
   }
 }
-#pTotalPrice{
-  font-weight: 600;
-  font-size: xx-large;
-  margin-left: 5%;
-  @media(max-width:700px){
-    font-size: x-large;
-  }
-}
+
 
 @media(max-width:900px){
   #categories{
@@ -134,26 +142,30 @@
 @media(max-width:500px){
   #orderInfo{
     height: 100px;
+
+    & div{
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    & #pTotalPrice{
+      font-size: x-large;
+    }
+
+    & #buttonSummary, #buttonCancelOrder{
+      font-size: medium;
+      height: 80%;
+      padding:5px;
+      text-wrap-mode: wrap;
+    }
   }
-  #orderInfo div{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #buttonSummary, #buttonCancelOrder{
-    font-size: medium;
-    height: 80%;
-    padding:5px;
-    text-wrap-mode: wrap;
-  }
+  
   #categories{
     padding-bottom: 40px;
   }
   #products{
     padding-bottom: 40px;
-  }
-  #pTotalPrice{
-    font-size: x-large;
   }
 }
