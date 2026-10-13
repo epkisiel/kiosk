@@ -84,10 +84,6 @@ function App(){
     setSelectedCategory(1);
   }
 
-  function goToSummary(){
-    setPageVisibility("summary");
-  }
-
   function addToOrder(addedProduct,amount){
     const existingOrder=order.find(o=>o.name===addedProduct.name);
     let price=0;
@@ -151,7 +147,7 @@ function App(){
           <div id="orderInfo">
             <p id="pTotalPrice">Suma: {Math.max(0, totalPrice).toFixed(2)} PLN</p>
             <div>
-              <button id="buttonSummary" onClick={goToSummary}>Przejdź do posumowania</button>
+              <button id="buttonSummary" onClick={()=>setPageVisibility("summary")}>Przejdź do posumowania</button>
               <button id="buttonCancelOrder" onClick={cancelOrder}>Anuluj zamówienie</button>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import styles from "./Products.module.css";
+import styles from "./../styles/Products.module.css";
 
 function Products({products,meals,selectedCategory,selectProduct}){
     return(

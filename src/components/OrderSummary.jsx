@@ -1,4 +1,4 @@
-import styles from "./OrderSummary.module.css";
+import styles from "./../styles/OrderSummary.module.css";
 
 function OrderSummary({order, totalPrice, setPageVisibility, deleteFromOrder}){
     return(

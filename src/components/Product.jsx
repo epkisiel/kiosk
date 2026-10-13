@@ -1,4 +1,4 @@
-import styles from "./Product.module.css";
+import styles from "./../styles/Product.module.css";
 import { useState, useEffect } from "react";
 
 function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,product_ingredient,selectedType})

@@ -1,4 +1,4 @@
-import styles from "./Categories.module.css";
+import styles from "./../styles/Categories.module.css";
 
 function Categories({categories, setSelectedCategory, selectedCategory}){
     
