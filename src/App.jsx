@@ -145,7 +145,7 @@ function App(){
           </div>
 
           <div id="orderInfo">
-            <p id="pTotalPrice">Suma: {Math.max(0, totalPrice).toFixed(2)} PLN</p>
+            <p id="pTotalPrice">Suma:<br id="breakPoint"/> {Math.max(0, totalPrice).toFixed(2)} PLN</p>
             <div>
               <button id="buttonSummary" onClick={()=>setPageVisibility("summary")}>Przejdź do posumowania</button>
               <button id="buttonCancelOrder" onClick={cancelOrder}>Anuluj zamówienie</button>

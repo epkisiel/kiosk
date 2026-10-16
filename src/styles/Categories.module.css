@@ -2,7 +2,7 @@
     list-style: none;
     gap:15px;
 
-    & .liCategories{
+    & li{
         cursor: pointer;
         min-height: 130px;
         width: 120px;
@@ -16,52 +16,35 @@
         flex-direction: column;
         transition: transform 0.1s ease, background-color 0.1s ease;
 
+        & p{
+            cursor: pointer;
+            margin-top: auto;
+            text-align: center;
+            font-weight: 600;
+            font-size: larger;
+        }
+        & img{
+            cursor: pointer;
+            width: 90%;
+        }
+    }
+
+    & .liCategories{
+        background-color: var(--secondary-color);
+        border: 2px solid var(--secondary-color);
+
         &:hover{
             background-color: white;
         }
         &:active{
             transform: scale(0.95);
         }
-
-        & p{
-            cursor: pointer;
-            margin-top: auto;
-            text-align: center;
-            font-weight: 600;
-            font-size: larger;
-        }
-        & img{
-            cursor: pointer;
-            width: 90%;
-        }
     }
+
     & .liSelectedCategory{
-        cursor: pointer;
-        min-height: 130px;
-        width: 120px;
-        padding: 10px;
-        margin: 15px;
         background-color: transparent;
         border: 2px solid var(--secondary-color);  
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        transition: transform 0.1s ease, background-color 0.1s ease;
-
-        & p{
-            cursor: pointer;
-            margin-top: auto;
-            text-align: center;
-            font-weight: 600;
-            font-size: larger;
-        }
-        & img{
-            cursor: pointer;
-            width: 90%;
-        }
     }
-
 }
 
 @media (max-width:500px){
@@ -86,5 +69,31 @@
     .liSelectedCategory{
         width: 140px;
         min-height: 150px;
+    }
+}
+
+
+
+@media(max-width:498px){
+    #ulCategories{
+        list-style: none;
+        gap:5px;
+
+        & li{
+            min-height: 10px;
+            height: 17dvh;
+            width: 30vw;
+            padding: 5px;
+
+            & p{
+                margin-top: auto;
+                font-weight: 600;
+                font-size: 1em;
+            }
+            & img{
+                width: 90%;
+            }
+        }
+    
     }
 }
