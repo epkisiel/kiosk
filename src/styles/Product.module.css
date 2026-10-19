@@ -193,6 +193,7 @@
 @media(max-width: 499px){
     #goBackButton{
         padding: 2px;
+        padding-left: 5px;
         margin: 0;
         height: 5dvh;
     }
@@ -207,6 +208,7 @@
         padding-top: 5px;
         padding-bottom: 3px;
         font-size: 22px;
+        box-shadow: inset 0 -6px 13px -5px rgba(0,0,0,0.2);
         
         & img{
             width: 60%;
