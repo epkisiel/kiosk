@@ -27,7 +27,7 @@
 #errorPage{
   padding: 10px;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,7 +51,7 @@
   border-right: 1px var(--main-color) solid;
   float: left;
   width: fit-content;
-  height: calc(100vh - 140px);
+  height: calc(100dvh - 140px);
   justify-content: center;
   display: flex;
   padding-right: 25px; 
@@ -63,7 +63,7 @@
 
 #products{
   float: left;
-  height: calc(100vh - 140px);
+  height: calc(100dvh - 140px);
   width: 100%;
   margin-bottom: 15px;
   overflow-y: auto;
@@ -195,13 +195,13 @@
   #categories{
     width: 30%;
     padding-right: 20vw;
-    height: calc(100vh - 130px);
+    height: calc(100dvh - 130px);
     padding-bottom: 0;
   }
   #products{
     padding-bottom: 0;
     padding-right: 5vw;
-    height: calc(100vh - 130px);
+    height: calc(100dvh - 130px);
   }
 
   #orderInfo{
