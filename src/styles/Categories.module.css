@@ -81,7 +81,8 @@
 
         & li{
             min-height: 10px;
-            height: 17dvh;
+            min-height: 15vh;
+            height: fit-content;
             width: 30vw;
             padding: 5px;
 
@@ -91,9 +92,8 @@
                 font-size: 1em;
             }
             & img{
-                width: 90%;
+                width: 90%;        
             }
         }
-    
     }
 }

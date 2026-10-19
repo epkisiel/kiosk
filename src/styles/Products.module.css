@@ -63,3 +63,18 @@
         padding:10px;
     }
 }
+
+
+@media(max-width: 499px){
+    #ulProducts {
+        gap: 10px;
+        padding: 10px;
+
+        & .liProducts{
+            font-size: 15px;
+            width: 80%;
+            min-height: 160px;
+            height: fit-content;
+        }
+}
+}

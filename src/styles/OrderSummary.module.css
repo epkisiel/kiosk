@@ -116,7 +116,7 @@
             transition: transform 0.1s ease;
 
             &:hover{
-                background-color: var(--main-color);
+                background-color: transparent;
                 color:white;
             }
             &:active{
@@ -153,7 +153,7 @@
             transition: transform 0.1s ease;
 
             &:hover{
-                background-color: var(--main-color);
+                background-color: transparent;
                 color: white;
             }
             &:active{
@@ -223,6 +223,59 @@
                 font-size: 18px;
                 text-wrap-mode: wrap;
                 min-width:120px;
+            }
+        }
+    }
+}
+
+
+@media(max-width:500px){
+    #summaryPage{
+        padding: 10px;
+
+        & p{
+            margin-bottom: 5px;
+        }
+
+        & #products{
+            padding-bottom: 10px;
+            height: calc(100dvh - 295px);
+
+            & ul li{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap:10px;
+
+                & #name{
+                    width: 100%;
+                }
+                & #amount{
+                    width: 100%;
+                    text-align: center;
+                    margin-top: auto;
+                }
+                & #price{
+                    width: 100%;
+                    text-align: left;
+                }
+                & #delete {
+                    width: 100%;
+                    text-align: center;
+
+                    & button{
+                        width: 90%;
+                    }
+                }
+            }
+        }
+        
+        & #payment{
+                height: 220px;
+                padding-top: 10px;
+
+            & p{
+                font-size: 28px;
+                margin-bottom: 10px;
             }
         }
     }

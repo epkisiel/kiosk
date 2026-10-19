@@ -26,7 +26,7 @@
     font-size: xx-large;
     padding-top:20px;
     overflow-y: auto;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 80px);
     scrollbar-width: thin;
     scrollbar-color: rgb(185, 185, 185) rgba(185, 185, 185, 0.1);
 
@@ -180,6 +180,75 @@
             & li{
                 min-height: fit-content;
                 width: 100px;
+            }
+        }
+        & #zeroIngredientsInfo{
+            font-size: 25px;
+            margin-left: 5%;
+        }
+    }
+}
+
+
+@media(max-width: 499px){
+    #goBackButton{
+        padding: 2px;
+        margin: 0;
+        height: 5vh;
+    }
+    #productPage{
+        height: 95vh;
+        overflow: visible;
+    }
+    #product{
+        clear: both;
+        width: 100%;
+        height: 50vh;
+        padding-top: 5px;
+        padding-bottom: 3px;
+        font-size: 22px;
+        
+        & img{
+            width: 60%;
+            padding-bottom: 3px;
+            padding: 5px;
+        }
+        & p{
+            font-size: 1em;
+        }
+        & span {
+            font-size: 20px;
+        }
+        & button{
+            margin-top: 4px;
+        }
+        & #addButton{
+            font-size: 18px;
+            text-wrap-mode: wrap;
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+    }
+    #ingredients{
+        width: 100%;
+        overflow-y: auto;
+        height: 45vh;
+        border-top: 1px solid var(--secondary-color);
+
+        & p{
+            font-size: 22px;
+            padding: 5px;
+        }
+        & ul {
+            gap:10px;          
+            & li{
+                min-height: fit-content;
+                width: 40%;
+                font-size: 1em;
+
+                & p{
+                    font-size: 1.1em;
+                }
             }
         }
         & #zeroIngredientsInfo{
