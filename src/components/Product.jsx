@@ -53,7 +53,8 @@ function Product({selectedProduct,setPageVisibility,ingredients,addToOrder,produ
                     {Number(selectedProduct.price).toFixed(2)} PLN<br/>
 
                     <span>Ilość:</span><br/>
-                    <button onClick={minusClicked} disabled={amount==1 ? true : false}>-</button>  {amount}  <button onClick={plusClicked} disabled={amount ==50 ? true : false}>+</button><br/>
+                    <button onClick={minusClicked} disabled={amount==1 ? true : false} className={amount==1 ? styles.buttonDisabled : styles.buttonEnabled}>-</button>  {amount}  <button onClick={plusClicked} disabled={amount==50 ? true : false} className={amount==50 ? styles.buttonDisabled : styles.buttonEnabled}>+</button><br/>
+                    
                     <button id={styles.addButton} onClick={()=>{addToOrder(selectedProduct,amount)}}>Dodaj do zamówienia</button>
                 </div>
                 

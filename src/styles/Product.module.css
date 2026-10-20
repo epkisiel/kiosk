@@ -41,6 +41,7 @@
         padding-top: 15px;
         padding-bottom: 10px;
     }
+
     & button{
         width: 30px;
         height: 30px;
@@ -50,6 +51,9 @@
         background-color: transparent;
         font-weight: 600;
         font-size: 20px;
+        color: var(--main-color);
+    }
+    & .buttonEnabled{
         transition: transform 0.1s ease;
 
         &:hover{
@@ -60,6 +64,10 @@
             transform: scale(0.9);
         }
     }
+    & .buttonDisabled{
+        opacity: 0.5;
+    }
+
     & span{
         font-size: 25px;
         margin-top: 10px;
@@ -84,6 +92,8 @@
         }
     }
 }
+
+
 #ingredients{
     width: 55%;
     float:left;
@@ -144,6 +154,7 @@
     }
 }
 
+
 @media(max-width:730px){
     #productPage{
         padding-top: 5px;
@@ -169,6 +180,7 @@
             margin-top: 30px;
         }
     }
+
     #ingredients{
         scrollbar-width: thin;
 
@@ -197,14 +209,16 @@
         margin: 0;
         height: 5dvh;
     }
+
     #productPage{
         height: 95dvh;
         overflow: visible;
     }
+
     #product{
         clear: both;
         width: 100%;
-        height: 50dvh;
+        height: 58dvh;
         padding-top: 5px;
         padding-bottom: 3px;
         font-size: 22px;
@@ -232,10 +246,11 @@
             margin-bottom: 0;
         }
     }
+
     #ingredients{
         width: 100%;
         overflow-y: auto;
-        height: 43dvh;
+        height: 35dvh;
         border-top: 1px solid var(--secondary-color);
         scrollbar-color: rgb(185, 185, 185) transparent;
         box-shadow: inset 0 -6px 5px -5px rgba(0,0,0,0.2);
@@ -245,17 +260,19 @@
             padding: 5px;
         }
         & ul {
-            gap:10px;          
+            gap:10px;
+
             & li{
-                min-height: fit-content;
-                width: 40%;
-                font-size: 1em;
+                height: fit-content;
+                width: 25%;
+                font-size: 14px;
 
                 & p{
-                    font-size: 1.1em;
+                    font-size: 15px;
                 }
             }
         }
+
         & #zeroIngredientsInfo{
             font-size: 25px;
             margin-left: 5%;

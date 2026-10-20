@@ -22,7 +22,7 @@
         transition: transform 0.1s ease, background-color 0.1s ease;
 
         &:hover{
-        background-color: var(--secondary-color);
+            background-color: var(--secondary-color);
         }
         &:active{
             transform: scale(0.95);
@@ -55,6 +55,7 @@
         height: fit-content;
     }
 }
+
 @media(min-width:1200px){
     #ulProducts .liProducts{
         width: 230px;
@@ -76,5 +77,5 @@
             min-height: 160px;
             height: fit-content;
         }
-}
+    }
 }
