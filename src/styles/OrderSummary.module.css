@@ -1,6 +1,6 @@
 #summaryPage{
     background-color: var(--main-color);
-    width: 100%;
+    width: 100vw;
     height: 100dvh;
     padding:70px;
     padding-left: 5%;
@@ -71,6 +71,7 @@
 
                         &:hover{
                             background-color: var(--secondary-color);
+                            color: var(--delete-color);
                         }
                     }
                 } 
@@ -182,7 +183,7 @@
             padding-right: 2px;
             height: calc(100dvh - 370px);
             scrollbar-width: thin;
-            box-shadow: inset 0 -6px 13px -5px rgba(0,0,0,0.2);
+            box-shadow: inset 0 -6px 3px -5px rgba(0,0,0,0.2);
 
             & ul li{
                 & #name{
